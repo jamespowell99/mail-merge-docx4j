@@ -7,6 +7,7 @@ import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.io.SaveToZipFile;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBException;
@@ -17,6 +18,7 @@ import java.util.Map;
 
 public class WordMergerTest {
     @Test
+    @Ignore
     public void test() throws Docx4JException, JAXBException, IOException {
         System.out.println("Starting");
 
@@ -30,6 +32,11 @@ public class WordMergerTest {
         mappings.put("fullNameAddressLine6", "line6");
         mappings.put("fullNameAddressLine7", "line7");
         mappings.put("contact", "Mr James Powell");
+        mappings.put("invoiceNum", "abc123");
+        mappings.put("iNum", "abc123");
+        mappings.put("orderNumber", "xyz123");
+        mappings.put("james", "abc123");
+
         String fileName = this.getClass().getClassLoader().getResource("letterHeading.docx").getFile();
         byte[] mergeBytes = new WordMerger().merge(fileName, mappings);
         File outputFile = new File(fileName + "_out_" + System.currentTimeMillis() + ".docx");
