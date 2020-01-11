@@ -23,21 +23,23 @@ public class WordMergerTest {
         System.out.println("Starting");
 
         Map<String, String> mappings = new HashMap<String, String>();
-        mappings.put("currentDateTime", "12th May");
-        mappings.put("fullNameAddressLine1", "line1");
-        mappings.put("fullNameAddressLine2", "line2");
-        mappings.put("fullNameAddressLine3", "line3");
-        mappings.put("fullNameAddressLine4", "line4");
-        mappings.put("fullNameAddressLine5", "line5");
-        mappings.put("fullNameAddressLine6", "line6");
-        mappings.put("fullNameAddressLine7", "line7");
-        mappings.put("contact", "Mr James Powell");
-        mappings.put("invoiceNum", "abc123");
-        mappings.put("iNum", "abc123");
-        mappings.put("orderNumber", "xyz123");
-        mappings.put("james", "abc123");
+//        mappings.put("currentDateTime", "12th May");
+//        mappings.put("fullNameAddressLine1", "line1");
+//        mappings.put("fullNameAddressLine2", "line2");
+//        mappings.put("fullNameAddressLine3", "line3");
+//        mappings.put("fullNameAddressLine4", "line4");
+//        mappings.put("fullNameAddressLine5", "line5");
+//        mappings.put("fullNameAddressLine6", "line6");
+//        mappings.put("fullNameAddressLine7", "line7");
+//        mappings.put("contact", "Mr James Powell");
+//        mappings.put("invoiceNum", "abc123");
+//        mappings.put("iNum", "abc123");
+//        mappings.put("orderNumber", "xyz123");
+//        mappings.put("james", "abc123");
 
-        String fileName = this.getClass().getClassLoader().getResource("letterHeading.docx").getFile();
+        mappings.put("companyName", "myCompany");
+
+        String fileName = this.getClass().getClassLoader().getResource("dampproofer-record.docx").getFile();
         byte[] mergeBytes = new WordMerger().merge(fileName, mappings);
         File outputFile = new File(fileName + "_out_" + System.currentTimeMillis() + ".docx");
         FileUtils.writeByteArrayToFile(outputFile, mergeBytes);
