@@ -50,6 +50,7 @@ public class WordMergerTest {
 
         mappings.put("companyName", "myCompany22");
         mappings.put("companyId", "theCompanyId");
+        mappings.put("notes", "line1\nline2\nline3");
 
         String fileName = this.getClass().getClassLoader().getResource("dampproofer-record.docx").getFile();
         byte[] mergeBytes = new WordMerger().merge(fileName, mappings);
